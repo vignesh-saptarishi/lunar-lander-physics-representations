@@ -1,0 +1,14 @@
+# Condition B (fixed physics, varied vehicle): labeled + easy + 2x128 + lowent.
+# The labeled agent sees 7 physics params — but 3 are constant (physics defaults).
+# Only vehicle params vary. Labels directly describe the agent's body.
+# Labeled should excel here — the labels ARE proprioceptive shortcuts.
+variant: labeled
+algo: ppo
+profile: vehicle-only-easy
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/vehicle-only/labeled-ppo-easy-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+net_arch: [128, 128]

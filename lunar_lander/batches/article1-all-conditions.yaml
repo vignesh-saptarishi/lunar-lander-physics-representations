@@ -1,0 +1,22 @@
+# Article 1 reproduction: all conditions referenced in the paper.
+#
+#   python lunar_lander/scripts/train_all_agents.py \
+#       --batch article1-all-conditions \
+#       --seeds 42,123,456,789,1024,2048,4096,8192,16384,32768 \
+#       --output-base ./data/networks
+runs:
+  # === FULL VARIATION (all 7 params) — primary claim ===
+  - full-variation/labeled-ppo-easy-128-lowent
+  - full-variation/blind-ppo-easy-128-lowent
+  - full-variation/labeled-ppo-medium-128-lowent
+  - full-variation/blind-ppo-medium-128-lowent
+  # === VEHICLE-ONLY (fixed physics, variable vehicle) ===
+  - vehicle-only/labeled-ppo-easy-128-lowent
+  - vehicle-only/blind-ppo-easy-128-lowent
+  - vehicle-only/labeled-ppo-hard-128-lowent
+  - vehicle-only/blind-ppo-hard-128-lowent
+  # === PHYSICS-ONLY (fixed vehicle, variable physics) ===
+  - physics-only/labeled-ppo-easy-128-lowent
+  - physics-only/blind-ppo-easy-128-lowent
+  - physics-only/labeled-ppo-medium-128-lowent
+  - physics-only/blind-ppo-medium-128-lowent

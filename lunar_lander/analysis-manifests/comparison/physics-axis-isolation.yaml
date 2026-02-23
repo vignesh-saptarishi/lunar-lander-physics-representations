@@ -1,0 +1,45 @@
+# Per-axis isolation: labeled vs blind when only one physics axis varies.
+# Tests whether the labeled advantage/disadvantage depends on which physics change.
+#
+# Requires training axis-isolated agents:
+#   python lunar_lander/scripts/train_all_agents.py \
+#       --batch article1-all-conditions \
+#       --seeds 42,123,456,789,1024 \
+#       --output-base ./data/networks
+experiment: physics-axis-isolation
+description: "Labeled vs blind for each isolated physics axis"
+output_base: ./data/results/physics-axis-isolation
+
+comparisons:
+  gravity-only:
+    condition: gravity-only
+    profile: gravity-only
+    configs:
+      labeled:
+        seed_base: ./data/networks/gravity-only/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024]
+      blind:
+        seed_base: ./data/networks/gravity-only/blind-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024]
+
+  wind-only:
+    condition: wind-only
+    profile: wind-only
+    configs:
+      labeled:
+        seed_base: ./data/networks/wind-only/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024]
+      blind:
+        seed_base: ./data/networks/wind-only/blind-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024]
+
+  turbulence-only:
+    condition: turbulence-only
+    profile: turbulence-only
+    configs:
+      labeled:
+        seed_base: ./data/networks/turbulence-only/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024]
+      blind:
+        seed_base: ./data/networks/turbulence-only/blind-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024]

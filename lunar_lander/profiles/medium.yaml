@@ -1,0 +1,6 @@
+# Medium: moderate challenge, some disturbances.
+# Intent: introduce wind and lower TWR once basic landing is solid.
+wind_power: [0.0, 15.0]
+turbulence_power: [0.0, 2.0]
+angular_damping: [0.0, 3.0]
+twr_min: 4.0

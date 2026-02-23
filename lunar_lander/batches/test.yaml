@@ -1,0 +1,7 @@
+# Test batch: minimal set to exercise the full pipeline.
+# 2 configs × 2 seeds = 4 training runs, ~1 min each.
+#
+#   ./reproduce.sh --test
+runs:
+  - test/labeled-ppo-easy-test
+  - test/blind-ppo-easy-test

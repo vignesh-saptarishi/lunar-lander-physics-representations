@@ -1,0 +1,19 @@
+# Gymnasium LunarLander-v3: default behavior, no randomization.
+# Matches the actual behavior of LunarLander-v3 with default kwargs.
+#
+# Note on wind: Gymnasium's default is enable_wind=False — wind code never
+# executes, even though wind_power=15.0 is set internally. Our env fork
+# removed enable_wind and uses wind_power=0 for no wind. So we set
+# wind_power=0.0 and turbulence_power=0.0 here to match Gymnasium's
+# default BEHAVIOR (no wind), not the unused parameter values.
+#
+# Intent: baseline agent trained on fixed default physics. Useful as a
+# control — compares against generalist agents that train with domain
+# randomization across the physics space.
+gravity: -10.0
+main_engine_power: 13.0
+side_engine_power: 0.6
+lander_density: 5.0
+angular_damping: 0.0
+wind_power: 0.0
+turbulence_power: 0.0

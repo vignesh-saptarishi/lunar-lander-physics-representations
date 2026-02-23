@@ -1,0 +1,34 @@
+# OOD generalization: easy-trained agents evaluated on harder physics profiles.
+# Tests whether blind or labeled agents generalize better to unseen difficulty.
+#
+# Paths match the output of train_all_agents.py --output-base ./data/networks
+experiment: ood-generalization
+description: "Easy-trained agents evaluated on medium and hard profiles (OOD)"
+output_base: ./data/results/ood-generalization
+
+comparisons:
+  ood-medium:
+    condition: full-variation
+    profile: medium
+    configs:
+      labeled:
+        seed_base: ./data/networks/full-variation/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024, 2048, 4096, 8192, 16384, 32768]
+        trajectory_subdir: trajectories-ood-medium
+      blind:
+        seed_base: ./data/networks/full-variation/blind-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024, 2048, 4096, 8192, 16384, 32768]
+        trajectory_subdir: trajectories-ood-medium
+
+  ood-hard:
+    condition: full-variation
+    profile: hard
+    configs:
+      labeled:
+        seed_base: ./data/networks/full-variation/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024, 2048, 4096, 8192, 16384, 32768]
+        trajectory_subdir: trajectories-ood-hard
+      blind:
+        seed_base: ./data/networks/full-variation/blind-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024, 2048, 4096, 8192, 16384, 32768]
+        trajectory_subdir: trajectories-ood-hard

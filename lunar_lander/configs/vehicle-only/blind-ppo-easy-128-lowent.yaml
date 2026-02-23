@@ -1,0 +1,13 @@
+# Condition B (fixed physics, varied vehicle): blind + easy + 2x128 + lowent.
+# The blind agent must infer its own body params from action consequences.
+# This is pure proprioceptive calibration — the world never changes.
+variant: blind
+algo: ppo
+profile: vehicle-only-easy
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/vehicle-only/blind-ppo-easy-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+net_arch: [128, 128]

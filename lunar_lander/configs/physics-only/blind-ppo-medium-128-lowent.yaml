@@ -1,0 +1,13 @@
+# Condition A (fixed vehicle, varied physics): blind + medium + 2x128 + lowent.
+# Blind agent must infer all three physics params (gravity, wind, turbulence)
+# from behavior alone. Vehicle is always the same — no body calibration needed.
+variant: blind
+algo: ppo
+profile: physics-only-medium
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/physics-only/blind-ppo-medium-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+net_arch: [128, 128]

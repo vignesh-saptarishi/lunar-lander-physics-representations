@@ -1,0 +1,17 @@
+# physics-only-medium: Condition A (fixed vehicle, varied physics) - medium.
+# Intent: test physics adaptation with all three world params varying.
+# Vehicle still fixed at gym defaults. All physics knobs active.
+
+# --- Vehicle: fixed at gym defaults ---
+main_engine_power: 13.0
+side_engine_power: 0.6
+lander_density: 5.0
+angular_damping: 0.0
+
+# --- Physics: all three vary (mirrors medium profile ranges) ---
+# gravity: omitted = full range [-12.0, -2.0]
+wind_power: [0.0, 15.0]
+turbulence_power: [0.0, 2.0]
+
+# TWR constraint: moderate. Fixed vehicle + strong gravity can drop below 4.
+twr_min: 4.0

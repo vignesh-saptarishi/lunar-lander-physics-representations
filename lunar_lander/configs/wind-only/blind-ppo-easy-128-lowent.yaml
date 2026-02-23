@@ -1,0 +1,11 @@
+# Expt E: wind-only sub-condition, blind variant.
+# Fixed vehicle, fixed gravity, only wind varies.
+variant: blind
+algo: ppo
+profile: wind-only
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/wind-only/blind-ppo-easy-128-lowent
+n_envs: 8
+ent_coef: 0.001
+net_arch: [128, 128]

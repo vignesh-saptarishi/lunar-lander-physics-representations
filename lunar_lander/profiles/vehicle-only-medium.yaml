@@ -1,0 +1,17 @@
+# vehicle-only-medium: Condition B (fixed physics, varied vehicle) - medium.
+# Intent: test body adaptation across a wider range of vehicle properties.
+# Physics fixed at gym defaults. Vehicle varies with less stability.
+
+# --- Physics: fixed at gym defaults ---
+gravity: -10.0
+wind_power: 0.0
+turbulence_power: 0.0
+
+# --- Vehicle: varies (medium = lower damping, harder TWR) ---
+# main_engine_power: omitted = full range [5.0, 25.0]
+# side_engine_power: omitted = full range [0.2, 1.5]
+# lander_density: omitted = full range [2.5, 10.0]
+angular_damping: [0.0, 3.0]
+
+# TWR constraint: moderate. Includes challenging low-thrust, heavy vehicles.
+twr_min: 4.0

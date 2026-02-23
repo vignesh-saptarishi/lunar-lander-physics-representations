@@ -1,0 +1,13 @@
+# Condition B (fixed physics, varied vehicle): blind + medium + 2x128 + lowent.
+# Blind agent must calibrate to diverse vehicle configs through behavior alone.
+# Harder than easy: lower damping, lower TWR floor, wider engine/density range.
+variant: blind
+algo: ppo
+profile: vehicle-only-medium
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/vehicle-only/blind-ppo-medium-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+net_arch: [128, 128]

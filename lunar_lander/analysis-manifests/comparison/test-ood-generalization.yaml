@@ -1,0 +1,31 @@
+# Test: OOD generalization comparison (2 seeds, 32K steps).
+experiment: test-ood-generalization
+description: "Test: easy-trained agents evaluated on medium and hard"
+output_base: ./data/results/test-ood-generalization
+
+comparisons:
+  ood-medium:
+    condition: test
+    profile: medium
+    configs:
+      labeled:
+        seed_base: ./data/networks/test/labeled-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories-ood-medium
+      blind:
+        seed_base: ./data/networks/test/blind-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories-ood-medium
+
+  ood-hard:
+    condition: test
+    profile: hard
+    configs:
+      labeled:
+        seed_base: ./data/networks/test/labeled-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories-ood-hard
+      blind:
+        seed_base: ./data/networks/test/blind-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories-ood-hard

@@ -1,0 +1,30 @@
+# Test: label corruption comparison (2 seeds, 32K steps).
+experiment: test-label-corruption
+description: "Test: label corruption on labeled agents"
+output_base: ./data/results/test-label-corruption
+
+comparisons:
+  test-easy:
+    condition: test
+    profile: easy
+    configs:
+      labeled:
+        seed_base: ./data/networks/test/labeled-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories
+      labeled-zeroed:
+        seed_base: ./data/networks/test/labeled-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories-zero-zero
+      labeled-shuffled:
+        seed_base: ./data/networks/test/labeled-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories-shuffle-shuffle
+      labeled-mean:
+        seed_base: ./data/networks/test/labeled-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories-mean-mean
+      labeled-noise:
+        seed_base: ./data/networks/test/labeled-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories-noise-noise-s0.1

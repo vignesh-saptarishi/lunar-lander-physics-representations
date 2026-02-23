@@ -1,0 +1,13 @@
+# Condition B (fixed physics, varied vehicle): labeled + medium + 2x128 + lowent.
+# Wider vehicle variation: angular_damping [0,3], twr_min=4.0.
+# Includes challenging low-thrust, heavy vehicles. Physics still fixed.
+variant: labeled
+algo: ppo
+profile: vehicle-only-medium
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/vehicle-only/labeled-ppo-medium-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+net_arch: [128, 128]

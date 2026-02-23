@@ -1,0 +1,15 @@
+# Test config: blind agent, 20K steps with frequent checkpoints/eval/video.
+# Used by ./reproduce.sh --test to verify the full pipeline quickly.
+variant: blind
+algo: ppo
+profile: easy
+total_steps: 32_768
+n_envs: 8
+ent_coef: 0.001
+net_arch: [128, 128]
+
+checkpoint_freq: 32_768
+eval_freq: 8_192
+video_freq: 32_768
+
+run_dir: ./data/networks/test/blind-ppo-easy-test

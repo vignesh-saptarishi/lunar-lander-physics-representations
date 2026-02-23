@@ -1,0 +1,20 @@
+# turbulence-only: Expt E sub-condition — only turbulence varies.
+# Fixed vehicle except angular_damping [0,3] for difficulty.
+# Tests: can the blind agent handle stochastic perturbations?
+
+# --- Vehicle: fixed at gym defaults, except damping ---
+# angular_damping varied [0,3] across all Expt E sub-conditions to raise
+# difficulty uniformly — without it, fixed vehicle + one physics axis is
+# too close to the default env. Damping affects rotation handling without
+# confounding the world physics axis being tested.
+main_engine_power: 13.0
+side_engine_power: 0.6
+lander_density: 5.0
+angular_damping: [0.0, 3.0]
+
+# --- Physics: turbulence only ---
+gravity: -10.0
+wind_power: 0.0
+turbulence_power: [0.0, 2.0]
+
+twr_min: 8.0

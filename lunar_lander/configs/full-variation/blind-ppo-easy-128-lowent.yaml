@@ -1,0 +1,15 @@
+# Blind agent + PPO on easy with 2x128 net AND reduced entropy (ent_coef=0.001).
+# THE critical comparison: labeled-128-lowent is our best agent (83%).
+# If blind-128-lowent matches or beats it, the blind > labeled finding
+# is architecture-independent (not just an overparameterization artifact).
+variant: blind
+algo: ppo
+profile: easy
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/full-variation/blind-ppo-easy-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+# Intermediate: 2 hidden layers of 128 units (shared actor/critic, ~32K params).
+net_arch: [128, 128]

@@ -1,0 +1,13 @@
+# Blind agent + PPO on medium with 2x128 net AND reduced entropy (ent_coef=0.001).
+# Key comparison: does blind-128-lowent remain strong on harder DR?
+variant: blind
+algo: ppo
+profile: medium
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/full-variation/blind-ppo-medium-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+# Intermediate: 2 hidden layers of 128 units (shared actor/critic, ~32K params).
+net_arch: [128, 128]

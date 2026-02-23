@@ -1,0 +1,12 @@
+# Labeled agent + PPO on fixed Gymnasium default physics (no randomization).
+# Control condition — single physics config, no domain randomization.
+variant: labeled
+algo: ppo
+profile: gym-default
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/baselines/labeled-ppo-gym-default
+n_envs: 8
+ent_coef: 0.001
+
+net_arch: [128, 128]

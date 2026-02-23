@@ -1,0 +1,17 @@
+# vehicle-only-hard: Condition B (fixed physics, varied vehicle) - hard.
+# Intent: stress-test body adaptation with extreme vehicle variation.
+# Physics fixed at gym defaults. Vehicle varies across full range with low damping.
+
+# --- Physics: fixed at gym defaults ---
+gravity: -10.0
+wind_power: 0.0
+turbulence_power: 0.0
+
+# --- Vehicle: varies (hard = minimal damping, barely-hoverable) ---
+# main_engine_power: omitted = full range [5.0, 25.0]
+# side_engine_power: omitted = full range [0.2, 1.5]
+# lander_density: omitted = full range [2.5, 10.0]
+angular_damping: [0.0, 2.0]
+
+# TWR constraint: low. Includes barely-hoverable heavy + weak configs.
+twr_min: 1.5

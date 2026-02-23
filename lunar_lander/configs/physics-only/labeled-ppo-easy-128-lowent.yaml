@@ -1,0 +1,15 @@
+# Condition A (fixed vehicle, varied physics): labeled + easy + 2x128 + lowent.
+# The labeled agent sees 7 physics params — but 4 are constant (vehicle defaults).
+# Only gravity varies (wind=0, turbulence=0 in physics-only-easy).
+# Key question: does having the constant vehicle dims help or hurt?
+variant: labeled
+algo: ppo
+profile: physics-only-easy
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/physics-only/labeled-ppo-easy-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+# Best architecture from easy sweep (83% landed).
+net_arch: [128, 128]

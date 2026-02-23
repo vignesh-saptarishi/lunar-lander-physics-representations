@@ -1,0 +1,19 @@
+# physics-only-easy: Condition A (fixed vehicle, varied physics) - easy.
+# Intent: test pure physics adaptation with just gravity variation.
+# Vehicle fixed at gym defaults — the standard lander everyone knows.
+# Only gravity varies; no wind or turbulence distractions.
+
+# --- Vehicle: fixed at gym defaults ---
+main_engine_power: 13.0
+side_engine_power: 0.6
+lander_density: 5.0
+angular_damping: 0.0
+
+# --- Physics: gravity only (easy = no wind) ---
+# gravity: omitted = full range [-12.0, -2.0]
+wind_power: 0.0
+turbulence_power: 0.0
+
+# TWR constraint: comfortable. Some strong-gravity configs may be rejected
+# because the fixed vehicle can't maintain TWR >= 8 at extreme gravity.
+twr_min: 8.0

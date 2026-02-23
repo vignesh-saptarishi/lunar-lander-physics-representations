@@ -1,0 +1,17 @@
+# physics-only-hard: Condition A (fixed vehicle, varied physics) - hard.
+# Intent: stress-test physics adaptation with extreme world variation.
+# Vehicle fixed at gym defaults. Gravity full range + extreme wind + turbulence.
+
+# --- Vehicle: fixed at gym defaults ---
+main_engine_power: 13.0
+side_engine_power: 0.6
+lander_density: 5.0
+angular_damping: 0.0
+
+# --- Physics: extreme ranges (mirrors hard profile) ---
+# gravity: omitted = full range [-12.0, -2.0]
+wind_power: [0.0, 30.0]
+turbulence_power: [0.0, 5.0]
+
+# TWR constraint: low. Fixed vehicle may barely hover at extreme gravity.
+twr_min: 1.5

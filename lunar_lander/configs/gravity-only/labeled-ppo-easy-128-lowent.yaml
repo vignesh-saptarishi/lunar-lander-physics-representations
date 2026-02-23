@@ -1,0 +1,11 @@
+# Expt E: gravity-only sub-condition, labeled variant.
+# Fixed vehicle, only gravity varies. Identical to physics-only-easy.
+variant: labeled
+algo: ppo
+profile: gravity-only
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/gravity-only/labeled-ppo-easy-128-lowent
+n_envs: 8
+ent_coef: 0.001
+net_arch: [128, 128]

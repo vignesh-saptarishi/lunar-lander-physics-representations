@@ -1,0 +1,13 @@
+# Condition B (fixed physics, varied vehicle): blind + hard + 2x128 + lowent.
+# Extreme vehicle variation: full range engine/density, minimal damping [0,2].
+# Physics fixed at gym defaults. Low TWR floor (1.5).
+variant: blind
+algo: ppo
+profile: vehicle-only-hard
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/vehicle-only/blind-ppo-hard-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+net_arch: [128, 128]

@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# Stage 6: Print summary of where to find key outputs.
+#
+# Maps each Article 1 claim to the files that support it.
+# Can be run standalone after any stage to check what exists.
+set -euo pipefail
+
+NETWORKS_DIR="${NETWORKS_DIR:-./data/networks}"
+RESULTS_DIR="${RESULTS_DIR:-./data/results}"
+
+echo ""
+echo "============================================================"
+echo "  ARTICLE 1 REPRODUCTION — OUTPUT SUMMARY"
+echo "============================================================"
+echo ""
+echo "Claim 1: Blind vs labeled performance"
+echo "  Statistical tests:"
+echo "    ${RESULTS_DIR}/parametric-vs-behavioral/stat_tests.json"
+echo "  Per-seed metrics:"
+echo "    ${NETWORKS_DIR}/full-variation/labeled-ppo-easy-128-lowent/s*/trajectories/metrics.csv"
+echo "    ${NETWORKS_DIR}/full-variation/blind-ppo-easy-128-lowent/s*/trajectories/metrics.csv"
+echo ""
+echo "Claim 2: Two control strategies (thrust autocorrelation)"
+echo "  Behavioral summaries:"
+echo "    ${NETWORKS_DIR}/full-variation/*/s*/trajectories/behavioral_analysis/behavioral_summary.json"
+echo "  Raw metrics (thrust_autocorr_lag1 column):"
+echo "    ${NETWORKS_DIR}/full-variation/*/s*/trajectories/metrics.csv"
+echo ""
+echo "Claim 3: Labels are load-bearing (corruption test)"
+echo "  Statistical tests:"
+echo "    ${RESULTS_DIR}/label-corruption/stat_tests.json"
+echo "  Per-mode metrics:"
+echo "    ${NETWORKS_DIR}/full-variation/labeled-ppo-easy-128-lowent/s*/trajectories-zero/metrics.csv"
+echo "    ${NETWORKS_DIR}/full-variation/labeled-ppo-easy-128-lowent/s*/trajectories-shuffle/metrics.csv"
+echo "    ${NETWORKS_DIR}/full-variation/labeled-ppo-easy-128-lowent/s*/trajectories-mean/metrics.csv"
+echo "    ${NETWORKS_DIR}/full-variation/labeled-ppo-easy-128-lowent/s*/trajectories-noise/metrics.csv"
+echo ""
+echo "Claim 4: OOD generalization gap"
+echo "  Statistical tests:"
+echo "    ${RESULTS_DIR}/ood-generalization/stat_tests.json"
+echo "  Per-profile metrics:"
+echo "    ${NETWORKS_DIR}/full-variation/*/s*/trajectories-ood-medium/metrics.csv"
+echo "    ${NETWORKS_DIR}/full-variation/*/s*/trajectories-ood-hard/metrics.csv"
+echo ""
+echo "============================================================"
+echo "  All networks:  ${NETWORKS_DIR}/"
+echo "  All results:   ${RESULTS_DIR}/"
+echo "============================================================"

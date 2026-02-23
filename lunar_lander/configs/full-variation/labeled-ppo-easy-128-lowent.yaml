@@ -1,0 +1,14 @@
+# Labeled agent + PPO on easy with 2x128 net AND reduced entropy (ent_coef=0.001).
+# Both levers at once: intermediate capacity + moderate entropy.
+# If this outperforms both 2x128-default and 3x256-lowent, it's the sweet spot.
+variant: labeled
+algo: ppo
+profile: easy
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/full-variation/labeled-ppo-easy-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+# Intermediate: 2 hidden layers of 128 units (shared actor/critic, ~32K params).
+net_arch: [128, 128]

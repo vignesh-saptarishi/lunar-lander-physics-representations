@@ -1,0 +1,3 @@
+# Full: everything at full RANGES. The no-profile baseline.
+# Intent: no overrides at all — equivalent to not using a profile.
+# (empty file — all params fall back to full ranges, no TWR constraint)

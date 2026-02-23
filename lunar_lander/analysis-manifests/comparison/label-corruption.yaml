@@ -1,0 +1,38 @@
+# Label corruption test: do labeled agents actually use their physics labels?
+#
+# Compares uncorrupted labeled agents against corruption modes:
+#   zero    - set physics dims to 0 (are labels load-bearing?)
+#   shuffle - permute physics dims within episode (does mapping matter?)
+#   mean    - replace with training-set mean (does per-episode variation matter?)
+#   noise   - add Gaussian noise sigma=0.1 (how precise must labels be?)
+#
+# Paths match the output of train_all_agents.py --output-base ./data/networks
+experiment: label-corruption
+description: "Label corruption test: do labeled agents use their physics labels?"
+output_base: ./data/results/label-corruption
+
+comparisons:
+  full-variation-easy:
+    condition: full-variation
+    profile: easy
+    configs:
+      labeled:
+        seed_base: ./data/networks/full-variation/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024, 2048, 4096, 8192, 16384, 32768]
+        trajectory_subdir: trajectories
+      labeled-zeroed:
+        seed_base: ./data/networks/full-variation/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024, 2048, 4096, 8192, 16384, 32768]
+        trajectory_subdir: trajectories-zero-zero
+      labeled-shuffled:
+        seed_base: ./data/networks/full-variation/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024, 2048, 4096, 8192, 16384, 32768]
+        trajectory_subdir: trajectories-shuffle-shuffle
+      labeled-mean:
+        seed_base: ./data/networks/full-variation/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024, 2048, 4096, 8192, 16384, 32768]
+        trajectory_subdir: trajectories-mean-mean
+      labeled-noise:
+        seed_base: ./data/networks/full-variation/labeled-ppo-easy-128-lowent
+        seeds: [42, 123, 456, 789, 1024, 2048, 4096, 8192, 16384, 32768]
+        trajectory_subdir: trajectories-noise-noise-s0.1

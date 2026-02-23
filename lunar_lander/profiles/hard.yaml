@@ -1,0 +1,6 @@
+# Hard: near-full range, barely-hoverable configs possible.
+# Intent: stress-test with challenging physics before going to full range.
+wind_power: [0.0, 30.0]
+turbulence_power: [0.0, 5.0]
+angular_damping: [0.0, 2.0]
+twr_min: 1.5

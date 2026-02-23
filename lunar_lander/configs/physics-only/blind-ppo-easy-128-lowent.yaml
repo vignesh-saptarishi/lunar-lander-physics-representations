@@ -1,0 +1,15 @@
+# Condition A (fixed vehicle, varied physics): blind + easy + 2x128 + lowent.
+# The blind agent sees only kinematics + terrain (15D). Vehicle is always the
+# same (gym defaults), so any behavioral inference is pure physics adaptation.
+# This is the cleanest test of "can RL agents learn physics from behavior?"
+variant: blind
+algo: ppo
+profile: physics-only-easy
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/physics-only/blind-ppo-easy-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+# Best architecture from easy sweep (83% landed).
+net_arch: [128, 128]

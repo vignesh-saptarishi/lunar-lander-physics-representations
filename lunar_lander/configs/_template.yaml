@@ -1,0 +1,37 @@
+# Training config template for Lunar Lander RL.
+# CLI args (e.g. --total-steps) override YAML values.
+#
+# Usage:
+#   python lunar_lander/scripts/train_rl.py --config labeled-ppo
+#   python lunar_lander/scripts/train_rl.py --config path/to/custom.yaml
+#   python lunar_lander/scripts/train_rl.py --config labeled-ppo --total-steps 5000000
+
+# === REQUIRED (must be set in every config) ===
+# variant: labeled          # labeled | blind | history
+# algo: ppo                 # ppo | sac
+# total_steps: 3_000_000    # total env steps
+# run_dir: runs/lunar_lander/my-run  # single directory for ALL outputs
+
+# === OPTIONAL (sensible defaults exist) ===
+# history_k: 8              # history stack depth (history variant only)
+# n_rays: 7                 # terrain sensing rays
+# n_envs: 8                 # parallel env workers
+# seed: 42
+
+# --- Schedule ---
+# eval_freq: 50_000
+# checkpoint_freq: 100_000
+# video_freq: 0             # 0 = disabled
+
+# --- Physics ---
+# profile: easy             # sampling profile name or path to .yaml
+# curriculum: "easy:0,medium:500K,hard:1.5M"  # mutually exclusive with profile
+
+# --- Algorithm hyperparameters ---
+# ent_coef: 0.0              # entropy coefficient override (PPO default: 0.01)
+
+# --- Network ---
+# net_arch: [64, 64]        # RL Zoo default: shared 2x64 MLP (~8K params)
+# net_arch:                  # Default (omit for 3x256 pi+vf, ~200K params):
+#   pi: [256, 256, 256]
+#   vf: [256, 256, 256]

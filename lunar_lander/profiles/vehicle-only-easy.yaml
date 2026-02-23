@@ -1,0 +1,18 @@
+# vehicle-only-easy: Condition B (fixed physics, varied vehicle) - easy.
+# Intent: test body adaptation / proprioceptive calibration.
+# Physics fixed at gym defaults — standard Earth, no wind.
+# Vehicle varies with high stability and comfortable TWR.
+
+# --- Physics: fixed at gym defaults ---
+gravity: -10.0
+wind_power: 0.0
+turbulence_power: 0.0
+
+# --- Vehicle: varies (easy = high damping, comfortable TWR) ---
+# main_engine_power: omitted = full range [5.0, 25.0]
+# side_engine_power: omitted = full range [0.2, 1.5]
+# lander_density: omitted = full range [2.5, 10.0]
+angular_damping: [2.0, 5.0]
+
+# TWR constraint: comfortable. Only vehicle configs with decent thrust pass.
+twr_min: 8.0

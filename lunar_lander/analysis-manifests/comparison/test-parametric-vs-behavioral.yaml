@@ -1,0 +1,18 @@
+# Test: labeled vs blind comparison (2 seeds, 32K steps).
+experiment: test-parametric-vs-behavioral
+description: "Test: labeled vs blind agents on easy"
+output_base: ./data/results/test-parametric-vs-behavioral
+
+comparisons:
+  test-easy:
+    condition: test
+    profile: easy
+    configs:
+      labeled:
+        seed_base: ./data/networks/test/labeled-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories
+      blind:
+        seed_base: ./data/networks/test/blind-ppo-easy-test
+        seeds: [42, 123]
+        trajectory_subdir: trajectories

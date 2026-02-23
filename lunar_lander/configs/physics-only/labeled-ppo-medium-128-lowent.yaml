@@ -1,0 +1,13 @@
+# Condition A (fixed vehicle, varied physics): labeled + medium + 2x128 + lowent.
+# All three physics params vary: gravity (full range), wind [0,15], turbulence [0,2].
+# Vehicle still fixed at gym defaults. Harder TWR floor (4.0).
+variant: labeled
+algo: ppo
+profile: physics-only-medium
+total_steps: 4_000_000
+video_freq: 250_000
+run_dir: ./data/networks/physics-only/labeled-ppo-medium-128-lowent
+n_envs: 8
+ent_coef: 0.001
+
+net_arch: [128, 128]

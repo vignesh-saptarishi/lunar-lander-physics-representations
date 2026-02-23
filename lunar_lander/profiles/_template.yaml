@@ -1,0 +1,27 @@
+# Sampling profile template for Lunar Lander domain randomization.
+# Scalar = fixed value. [min, max] = uniform sample. Omit key = full range.
+
+# Gravitational acceleration (negative = down). Full range: [-12.0, -2.0]
+gravity: [-12.0, -2.0]
+
+# Main engine thrust scaling. Full range: [5.0, 25.0]
+main_engine_power: [5.0, 25.0]
+
+# Side engine thrust scaling. Full range: [0.2, 1.5]
+side_engine_power: [0.2, 1.5]
+
+# Body density (mass = density * area). Full range: [2.5, 10.0]
+lander_density: [2.5, 10.0]
+
+# Rotational damping. Full range: [0.0, 5.0]
+angular_damping: [0.0, 5.0]
+
+# Horizontal wind force magnitude. Full range: [0.0, 30.0]
+wind_power: [0.0, 30.0]
+
+# Angular torque from turbulence. Full range: [0.0, 5.0]
+turbulence_power: [0.0, 5.0]
+
+# Thrust-to-weight ratio constraint (compound, rejection-sampled).
+# twr_min:
+# twr_max:

@@ -1,0 +1,14 @@
+# Batch config template for Lunar Lander RL training.
+# Lists training config names to run sequentially.
+#
+# Usage:
+#   python lunar_lander/scripts/train_all_agents.py --batch all-ppo
+#   python lunar_lander/scripts/train_all_agents.py --batch full-matrix --dry-run
+#   python lunar_lander/scripts/train_all_agents.py --batch all-agents --resume
+#
+# Each entry is a training config name (resolved from lunar_lander/configs/).
+# To customize a run, edit its training config YAML — no inline overrides.
+
+# runs:
+#   - labeled-ppo
+#   - blind-ppo
